@@ -1,0 +1,17 @@
+{%- comment -%}
+  Usage: {% include figure.html src="/assets/img/x.png" alt="..." caption="..." %}
+  Optional: src2 / alt2 put a second image beside the first (stacked on phones);
+  narrow=true caps the width for small single-panel plots.
+  The caption goes through markdownify, so it can hold links and $$math$$.
+{%- endcomment -%}
+<figure class="figure{% if include.src2 %} figure-pair{% endif %}{% if include.narrow %} figure-narrow{% endif %}">
+  <div class="figure-images">
+    <img src="{{ include.src | relative_url }}" alt="{{ include.alt }}" loading="lazy">
+    {%- if include.src2 %}
+    <img src="{{ include.src2 | relative_url }}" alt="{{ include.alt2 }}" loading="lazy">
+    {%- endif %}
+  </div>
+  {%- if include.caption %}
+  <figcaption>{{ include.caption | markdownify | remove: '<p>' | remove: '</p>' | strip }}</figcaption>
+  {%- endif %}
+</figure>

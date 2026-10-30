@@ -1,0 +1,46 @@
+title: Petros Karypis
+description: Research notes on language model architecture.
+author: Petros Karypis
+url: "https://petroskarypis.github.io"
+baseurl: ""
+# No GitHub Pages theme: every layout and style lives in this repo.
+theme: null
+
+markdown: kramdown
+kramdown:
+  input: GFM
+  hard_wrap: false
+  # kramdown writes $$...$$ out as \(...\) and \[...\]; KaTeX renders them in the browser.
+  math_engine: mathjax
+  syntax_highlighter: rouge
+
+# Icon links on the home page and in the footer; leave a value empty to hide it.
+social:
+  scholar: "https://scholar.google.com/citations?user=SVXAgc4AAAAJ&hl=en"
+  github: petroskarypis
+  x: kpetro_research
+  linkedin: petros-karypis
+
+permalink: /blog/:year/:title/
+
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-sitemap
+
+feed:
+  path: blog/feed.xml
+
+defaults:
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: post
+      math: true
+
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - vendor
+  - README.md
